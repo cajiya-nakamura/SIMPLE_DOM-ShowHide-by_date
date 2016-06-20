@@ -7,16 +7,16 @@
    if(now < sstime){
       // イベントの開始前に表示させるHTML ※改行する場合は「\」(バックスラッシュ)を入力してください。
       var html = '\
-      <a href="http://item.rakuten.co.jp/motsukichi/10000007/">\
-      <img src="http://www.rakuten.ne.jp/gold/motsukichi/img/banner/20160615_floting_pc.jpg" alt="">\
+      <a href="#">\
+      <img src="http://placekitten.com/g/200/300" alt="">\
       </a>\
       ';
 
    }else{
       // イベントの開始後に表示させるHTML ※改行する場合は「\」(バックスラッシュ)を入力してください。
       var html = '\
-      <a href="http://www.rakuten.ne.jp/gold/motsukichi/pages/2016/201606_ss_pc.html">\
-         <img src="http://image.rakuten.co.jp/motsukichi/cabinet/ebents/imgrc0072369083.jpg" alt="">\
+      <a href="#">\
+      <img src="http://placekitten.com/200/300" alt="">\
       </a>\
       ';
 
