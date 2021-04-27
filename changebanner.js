@@ -1,25 +1,34 @@
-(function(){
+$(function(){
+  $("[data-start],[data-end]").each( function( e ){
+    var start = $(this).data('start');
+      if( !start ) start = "2000-01-01";
+    var end = $(this).data('end');
+      if( !end ) end = "2099-12-31";
 
-   // イベントの開始時刻を入力する。
-   var sstime = new Date('Sat Jun 19 2016 00:00:00 GMT+0900 (JST)');
-   var now = new Date();
+    var reg = /^20\d{2}-[01]\d-[0-3]\d$/g;
+    error = {
+      c1 : "日付の形式が YYYY-MM-DD ではありません"
+    }
 
-   if(now < sstime){
-      // イベントの開始前に表示させるHTML ※改行する場合は「\」(バックスラッシュ)を入力してください。
-      var html = '\
-      <a href="#">\
-      <img src="http://placekitten.com/g/200/300" alt="">\
-      </a>\
-      ';
+    if( start.match(reg) === null || end.match(reg) === null ){
+      console.error( error.c1 );
+      return true;
+    }
 
-   }else{
-      // イベントの開始後に表示させるHTML ※改行する場合は「\」(バックスラッシュ)を入力してください。
-      var html = '\
-      <a href="#">\
-      <img src="http://placekitten.com/200/300" alt="">\
-      </a>\
-      ';
+    if( testTime ){
+      var nowDate = new Date( testTime );
+    }else{
+      var nowDate = new Date();
+    }
 
-   }
-   document.write(html);
-})();
+    var startDate = new Date( start );
+    var endDate = new Date( end );
+
+    if( startDate <= nowDate && nowDate <= endDate ){
+      $(this).show();
+    }else{
+      $(this).hide();
+    }
+  } );
+
+});
